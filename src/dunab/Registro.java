@@ -188,10 +188,10 @@ public class Registro extends javax.swing.JFrame {
     } catch (Exception e) {
         javax.swing.JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage());
     }
-        //javax.swing.JOptionPane.showMessageDialog(this, "Registro de datos exitosos :\nNombre: "+nombre.getText()+"\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"REGISTRO",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        //this.dispose();
-        //Login login = new Login();
-        //login.setVisible(true);
+        javax.swing.JOptionPane.showMessageDialog(this, "Registro de datos exitosos :\nNombre: "+nombre.getText()+"\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"REGISTRO",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
        
        
     }//GEN-LAST:event_RegistrarMouseClicked

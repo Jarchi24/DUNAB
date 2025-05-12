@@ -14,7 +14,7 @@ public class Conexion {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error de conexión: " + e.getMessage());
-            e.printStackTrace();
+          
             return null;
         }
     }
