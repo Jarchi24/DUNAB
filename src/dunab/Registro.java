@@ -56,7 +56,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 110, -1));
 
         usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        usuario.setForeground(new java.awt.Color(204, 204, 204));
+        usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         usuario.setText("Ingrese su usuario");
         usuario.setBorder(null);
         usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,7 +72,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 130, -1));
 
         contraseña.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        contraseña.setForeground(new java.awt.Color(204, 204, 204));
+        contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         contraseña.setText("********");
         contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -87,7 +87,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 210, -1));
 
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nombre.setForeground(new java.awt.Color(204, 204, 204));
+        nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nombre.setText("Ingrese su nombre ");
         nombre.setBorder(null);
         nombre.addMouseListener(new java.awt.event.MouseAdapter() {

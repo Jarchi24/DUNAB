@@ -51,7 +51,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 110, -1));
 
         usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        usuario.setForeground(new java.awt.Color(204, 204, 204));
+        usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         usuario.setText("Ingrese su usuario");
         usuario.setBorder(null);
         usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 130, -1));
 
         contraseña.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        contraseña.setForeground(new java.awt.Color(204, 204, 204));
+        contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         contraseña.setText("********");
         contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -137,7 +137,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_contraseñaMousePressed
 
     private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
-         String user = usuario.getText();
+    String user = usuario.getText();
     String pass = String.valueOf(contraseña.getPassword());
 
     try (Connection conn = Conexion.getConexion()) {
@@ -149,7 +149,7 @@ public class Login extends javax.swing.JFrame {
 
         if (rs.next()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido, " + rs.getString("nombre"));
-            Menu menu= new Menu();
+            Menu menu = new Menu();
             menu.setVisible(true);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.");
@@ -157,14 +157,14 @@ public class Login extends javax.swing.JFrame {
     } catch (Exception e) {
         javax.swing.JOptionPane.showMessageDialog(this, "Error al conectar: " + e.getMessage());
     }
-        javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"LOGIN",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        this.dispose();     
+        //javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"LOGIN",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        //this.dispose();     
     }//GEN-LAST:event_entrarMouseClicked
 
     private void RegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarseMouseClicked
-        Registro registro = new Registro();
-        registro.setVisible(true);
-        this.dispose();
+        //Registro registro = new Registro();
+        //registro.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_RegistrarseMouseClicked
 
     public static void main(String args[]) {
