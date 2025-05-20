@@ -158,13 +158,13 @@ public class Login extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, "Error al conectar: " + e.getMessage());
     }
         //javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"LOGIN",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        //this.dispose();     
+        this.dispose();     
     }//GEN-LAST:event_entrarMouseClicked
 
     private void RegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarseMouseClicked
-        //Registro registro = new Registro();
-        //registro.setVisible(true);
-        //this.dispose();
+        Registro registro = new Registro();
+        registro.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_RegistrarseMouseClicked
 
     public static void main(String args[]) {

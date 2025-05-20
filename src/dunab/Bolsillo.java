@@ -42,13 +42,19 @@ public class Bolsillo extends javax.swing.JFrame {
         jLabel1.setText("MONEDERO");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("      Bolsillo:");
 
+        lblDisponible.setBackground(new java.awt.Color(255, 255, 255));
+        lblDisponible.setForeground(new java.awt.Color(255, 255, 255));
         lblDisponible.setText("0");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Disponible:");
 
+        lblBolsillo.setBackground(new java.awt.Color(255, 255, 255));
+        lblBolsillo.setForeground(new java.awt.Color(255, 255, 255));
         lblBolsillo.setText("0");
 
         recarbolsillo.setBackground(new java.awt.Color(0, 134, 190));
