@@ -42,7 +42,7 @@ public class Menu extends javax.swing.JFrame {
         per.setBackground(new java.awt.Color(0, 134, 190));
         per.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         per.setForeground(new java.awt.Color(255, 255, 255));
-        per.setText("Perfil");
+        per.setText("CALCULADORA");
         per.setBorder(null);
         per.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -53,7 +53,7 @@ public class Menu extends javax.swing.JFrame {
         promedio.setBackground(new java.awt.Color(0, 134, 190));
         promedio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         promedio.setForeground(new java.awt.Color(255, 255, 255));
-        promedio.setText("Promedios");
+        promedio.setText("PROMEDIOS DUNAB");
         promedio.setBorder(null);
         promedio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -64,7 +64,7 @@ public class Menu extends javax.swing.JFrame {
         requisitosgrado.setBackground(new java.awt.Color(0, 134, 190));
         requisitosgrado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         requisitosgrado.setForeground(new java.awt.Color(255, 255, 255));
-        requisitosgrado.setText("Requisitos para grado");
+        requisitosgrado.setText("REQUISITO GRADO");
         requisitosgrado.setBorder(null);
         requisitosgrado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,8 +80,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(per, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(promedio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(promedio, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(requisitosgrado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -183,8 +183,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void perMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perMouseClicked
-        Perfil perfil = new Perfil();
-        perfil.setVisible(true);
+        Calculadora calculadora = new Calculadora();
+        calculadora.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_perMouseClicked
 
