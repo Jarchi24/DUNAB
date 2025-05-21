@@ -1,8 +1,12 @@
 package dunab;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Requisitos extends javax.swing.JFrame {
+
+    private boolean modoOscuro = false;
+    private final Color colorOriginal = new Color(134, 0, 221);
 
     public Requisitos() {
         initComponents();
@@ -11,17 +15,15 @@ public class Requisitos extends javax.swing.JFrame {
         String input = JOptionPane.showInputDialog(this, "¿En qué semestre estás?");
         try {
             int semestre = Integer.parseInt(input);
-            int totalSemestres = 10; // Por ejemplo
+            int totalSemestres = 10; 
 
             if (semestre >= 1 && semestre <= totalSemestres) {
                 double progreso = (semestre / (double) totalSemestres) * 100;
 
-                // Actualiza barra
                 barraProgreso.setValue((int) progreso);
-                barraProgreso.setStringPainted(true); // Muestra el % encima
+                barraProgreso.setStringPainted(true);
 
-                // Texto descriptivo
-                lblEstado.setText("Has iniciado tu carrera - " + String.format("%.2f", progreso) + " %");
+                lblEstado.setText("Has iniciado tu carrera" + String.format("%.2f", progreso) + " %");
             } else {
                 JOptionPane.showMessageDialog(this, "Número de semestre inválido.");
             }
@@ -40,6 +42,7 @@ public class Requisitos extends javax.swing.JFrame {
         Volver = new javax.swing.JButton();
         barraProgreso = new javax.swing.JProgressBar();
         lblEstado = new javax.swing.JLabel();
+        oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +76,16 @@ public class Requisitos extends javax.swing.JFrame {
         jPanel1.add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 330, 40));
         jPanel1.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 120, 20));
 
+        oscuro.setBackground(new java.awt.Color(255, 255, 255));
+        oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5064965.png"))); // NOI18N
+        oscuro.setBorder(null);
+        oscuro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                oscuroMouseClicked(evt);
+            }
+        });
+        jPanel1.add(oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 30, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,6 +105,15 @@ public class Requisitos extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_VolverMouseClicked
+
+    private void oscuroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oscuroMouseClicked
+        if (!modoOscuro) {
+            jPanel1.setBackground(new Color(54, 57, 63));
+        } else {
+            jPanel1.setBackground(colorOriginal);
+        }
+        modoOscuro = !modoOscuro;
+    }//GEN-LAST:event_oscuroMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -132,5 +154,6 @@ public class Requisitos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEstado;
+    private javax.swing.JButton oscuro;
     // End of variables declaration//GEN-END:variables
 }

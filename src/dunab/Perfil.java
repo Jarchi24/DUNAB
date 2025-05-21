@@ -4,8 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 public class Perfil extends javax.swing.JFrame {
+
+    private boolean modoOscuro = false;
+    private final Color colorOriginal = new Color(134, 0, 221);
 
     public Perfil() {
         initComponents();
@@ -37,7 +41,7 @@ public class Perfil extends javax.swing.JFrame {
         Volver = new javax.swing.JButton();
         lblHora = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        oscuro = new javax.swing.JButton();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -105,14 +109,17 @@ public class Perfil extends javax.swing.JFrame {
         lblFecha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("0");
-        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 90, -1));
+        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 90, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 134, 190));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("MODIFICAR");
-        jButton3.setBorder(null);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 110, 40));
+        oscuro.setBackground(new java.awt.Color(255, 255, 255));
+        oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5064965.png"))); // NOI18N
+        oscuro.setBorder(null);
+        oscuro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                oscuroMouseClicked(evt);
+            }
+        });
+        jPanel1.add(oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,6 +160,15 @@ public class Perfil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCalcularMouseClicked
 
+    private void oscuroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oscuroMouseClicked
+        if (!modoOscuro) {
+            jPanel1.setBackground(new Color(54, 57, 63));
+        } else {
+            jPanel1.setBackground(colorOriginal);
+        }
+        modoOscuro = !modoOscuro;
+    }//GEN-LAST:event_oscuroMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -188,7 +204,6 @@ public class Perfil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Volver;
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -197,6 +212,7 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
+    private javax.swing.JButton oscuro;
     private javax.swing.JTextField txtNota1;
     private javax.swing.JTextField txtNota2;
     // End of variables declaration//GEN-END:variables

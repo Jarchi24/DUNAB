@@ -31,6 +31,7 @@ public class Registro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         Registrar = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -107,7 +108,19 @@ public class Registro extends javax.swing.JFrame {
                 RegistrarMouseClicked(evt);
             }
         });
-        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 90, 30));
+        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 90, 30));
+
+        volver.setBackground(new java.awt.Color(0, 134, 190));
+        volver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        volver.setForeground(new java.awt.Color(255, 255, 255));
+        volver.setText("VOLVER");
+        volver.setBorder(null);
+        volver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volverMouseClicked(evt);
+            }
+        });
+        jPanel1.add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,6 +208,12 @@ public class Registro extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_RegistrarMouseClicked
+
+    private void volverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverMouseClicked
+       Login login = new Login();
+       login.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_volverMouseClicked
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -240,5 +259,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField usuario;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

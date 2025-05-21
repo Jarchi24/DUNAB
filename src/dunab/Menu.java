@@ -1,16 +1,17 @@
-
 package dunab;
 
+import java.awt.Color;
 
 public class Menu extends javax.swing.JFrame {
 
+    private boolean modoOscuro = false;
+    private final Color colorOriginal = new Color(134, 0, 221);
 
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -26,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
         dunab = new javax.swing.JButton();
         acocrud = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -156,11 +158,21 @@ public class Menu extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/city.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 300, 460));
 
+        oscuro.setBackground(new java.awt.Color(255, 255, 255));
+        oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5064965.png"))); // NOI18N
+        oscuro.setBorder(null);
+        oscuro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                oscuroMouseClicked(evt);
+            }
+        });
+        jPanel1.add(oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 30, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,15 +195,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_promedioMouseClicked
 
     private void requisitosgradoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requisitosgradoMouseClicked
-       Requisitos requisitos = new Requisitos();
-       requisitos.setVisible(true);
-       this.dispose();
+        Requisitos requisitos = new Requisitos();
+        requisitos.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_requisitosgradoMouseClicked
 
     private void registaraconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registaraconMouseClicked
-       Registraracontecimientos registraracontecimientos = new Registraracontecimientos();
-       registraracontecimientos.setVisible(true);
-       this.dispose();
+        Registraracontecimientos registraracontecimientos = new Registraracontecimientos();
+        registraracontecimientos.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_registaraconMouseClicked
 
     private void acocrudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acocrudMouseClicked
@@ -206,6 +218,14 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_dunabMouseClicked
 
+    private void oscuroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oscuroMouseClicked
+        if (!modoOscuro) {
+            jPanel1.setBackground(new Color(54, 57, 63)); 
+        } else {
+            jPanel1.setBackground(colorOriginal);
+        }
+        modoOscuro = !modoOscuro;
+    }//GEN-LAST:event_oscuroMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -242,6 +262,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton oscuro;
     private javax.swing.JButton per;
     private javax.swing.JButton promedio;
     private javax.swing.JButton registaracon;

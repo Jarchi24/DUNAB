@@ -2,13 +2,14 @@ package dunab;
 
 import java.awt.Color;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -25,6 +26,7 @@ public class Login extends javax.swing.JFrame {
         contraseña = new javax.swing.JPasswordField();
         entrar = new javax.swing.JButton();
         Registrarse = new javax.swing.JButton();
+        cambiarcontra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -86,7 +88,7 @@ public class Login extends javax.swing.JFrame {
                 entrarMouseClicked(evt);
             }
         });
-        jPanel1.add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 120, 30));
+        jPanel1.add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 120, 30));
 
         Registrarse.setBackground(new java.awt.Color(0, 134, 190));
         Registrarse.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -98,7 +100,19 @@ public class Login extends javax.swing.JFrame {
                 RegistrarseMouseClicked(evt);
             }
         });
-        jPanel1.add(Registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 120, 30));
+        jPanel1.add(Registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 120, 30));
+
+        cambiarcontra.setBackground(new java.awt.Color(0, 134, 190));
+        cambiarcontra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cambiarcontra.setForeground(new java.awt.Color(255, 255, 255));
+        cambiarcontra.setText("CAMBIAR CONTRASEÑA");
+        cambiarcontra.setBorder(null);
+        cambiarcontra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cambiarcontraMouseClicked(evt);
+            }
+        });
+        jPanel1.add(cambiarcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,57 +122,57 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioMousePressed
-        if(usuario.getText().equals("Ingrese su usuario")){
-           usuario.setText("");
-           usuario.setForeground(Color.gray);
+        if (usuario.getText().equals("Ingrese su usuario")) {
+            usuario.setText("");
+            usuario.setForeground(Color.gray);
         }
-       if(String.valueOf(contraseña.getPassword()).isEmpty()){
-          contraseña.setText("********");
-          contraseña.setForeground(Color.black);
-       }
+        if (String.valueOf(contraseña.getPassword()).isEmpty()) {
+            contraseña.setText("********");
+            contraseña.setForeground(Color.black);
+        }
     }//GEN-LAST:event_usuarioMousePressed
 
     private void contraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaMousePressed
-        if(String.valueOf(contraseña.getPassword()).equals("********")){
-           contraseña.setText("");
-           contraseña.setForeground(Color.black);
+        if (String.valueOf(contraseña.getPassword()).equals("********")) {
+            contraseña.setText("");
+            contraseña.setForeground(Color.black);
         }
-         if(usuario.getText().isEmpty()){
+        if (usuario.getText().isEmpty()) {
             usuario.setText("Ingrese su usuario");
             usuario.setForeground(Color.gray);
-         }
+        }
     }//GEN-LAST:event_contraseñaMousePressed
 
     private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
-    String user = usuario.getText();
-    String pass = String.valueOf(contraseña.getPassword());
+        String user = usuario.getText();
+        String pass = String.valueOf(contraseña.getPassword());
 
-    try (Connection conn = Conexion.getConexion()) {
-        String sql = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
-        java.sql.PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, user);
-        ps.setString(2, pass);
-        java.sql.ResultSet rs = ps.executeQuery();
+        try (Connection conn = Conexion.getConexion()) {
+            String sql = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
+            java.sql.PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            java.sql.ResultSet rs = ps.executeQuery();
 
-        if (rs.next()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido, " + rs.getString("nombre"));
-            Menu menu = new Menu();
-            menu.setVisible(true);
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.");
+            if (rs.next()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido, " + rs.getString("nombre"));
+                Menu menu = new Menu();
+                menu.setVisible(true);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al conectar: " + e.getMessage());
         }
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Error al conectar: " + e.getMessage());
-    }
         //javax.swing.JOptionPane.showMessageDialog(this, "Intento de login con los datos:\nUsuario: "+usuario.getText()+"\nContraseña: "+ String.valueOf(contraseña.getPassword()),"LOGIN",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        this.dispose();     
+        this.dispose();
     }//GEN-LAST:event_entrarMouseClicked
 
     private void RegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarseMouseClicked
@@ -166,6 +180,42 @@ public class Login extends javax.swing.JFrame {
         registro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RegistrarseMouseClicked
+
+    private void cambiarcontraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarcontraMouseClicked
+        String user = JOptionPane.showInputDialog(this, "Ingrese su nombre de usuario:");
+        if (user == null || user.trim().isEmpty()) {
+            return;
+        }
+
+        String newPass = JOptionPane.showInputDialog(this, "Ingrese su nueva contraseña:");
+        if (newPass == null || newPass.trim().isEmpty()) {
+            return;
+        }
+
+        try (Connection conn = Conexion.getConexion()) {
+            // Verificamos si el usuario existe
+            String checkSql = "SELECT * FROM usuarios WHERE usuario = ?";
+            java.sql.PreparedStatement checkPs = conn.prepareStatement(checkSql);
+            checkPs.setString(1, user);
+            java.sql.ResultSet rs = checkPs.executeQuery();
+
+            if (rs.next()) {
+                // Usuario válido, actualizamos contraseña
+                String updateSql = "UPDATE usuarios SET contraseña = ? WHERE usuario = ?";
+                java.sql.PreparedStatement updatePs = conn.prepareStatement(updateSql);
+                updatePs.setString(1, newPass);
+                updatePs.setString(2, user);
+                updatePs.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Contraseña actualizada con éxito.");
+            } else {
+                JOptionPane.showMessageDialog(this, "El usuario no existe.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_cambiarcontraMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -201,6 +251,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Registrarse;
+    private javax.swing.JButton cambiarcontra;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
