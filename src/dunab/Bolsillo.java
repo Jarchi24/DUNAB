@@ -35,6 +35,7 @@ public class Bolsillo extends javax.swing.JFrame {
         retibolsillo = new javax.swing.JButton();
         Volver = new javax.swing.JButton();
         oscuro = new javax.swing.JButton();
+        recargar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +90,7 @@ public class Bolsillo extends javax.swing.JFrame {
                 retibolsilloMouseClicked(evt);
             }
         });
-        jPanel1.add(retibolsillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 142, 33));
+        jPanel1.add(retibolsillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 142, 33));
 
         Volver.setBackground(new java.awt.Color(0, 134, 190));
         Volver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -113,6 +114,18 @@ public class Bolsillo extends javax.swing.JFrame {
         });
         jPanel1.add(oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 30, 30));
 
+        recargar.setBackground(new java.awt.Color(0, 134, 190));
+        recargar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        recargar.setForeground(new java.awt.Color(255, 255, 255));
+        recargar.setText("RECARGAR");
+        recargar.setBorder(null);
+        recargar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recargarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(recargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 140, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,23 +145,6 @@ public class Bolsillo extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_VolverMouseClicked
-
-    private void recarbolsilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recarbolsilloMouseClicked
-        String input = JOptionPane.showInputDialog(this, "¿Cuánto deseas mover al bolsillo?");
-        try {
-            double monto = Double.parseDouble(input);
-            if (monto > 0 && monto <= disponible) {
-                disponible -= monto;
-                bolsillo += monto;
-                JOptionPane.showMessageDialog(this, "Movimiento exitoso.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Monto inválido o insuficiente.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        actualizarLabels();
-    }//GEN-LAST:event_recarbolsilloMouseClicked
 
     private void retibolsilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retibolsilloMouseClicked
         String input = JOptionPane.showInputDialog(this, "¿Cuánto deseas retirar del bolsillo?");
@@ -176,6 +172,39 @@ public class Bolsillo extends javax.swing.JFrame {
         }
         modoOscuro = !modoOscuro;
     }//GEN-LAST:event_oscuroMouseClicked
+
+    private void recarbolsilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recarbolsilloMouseClicked
+        String input = JOptionPane.showInputDialog(this, "¿Cuánto deseas mover al bolsillo?");
+        try {
+            double monto = Double.parseDouble(input);
+            if (monto > 0 && monto <= disponible) {
+                disponible -= monto;
+                bolsillo += monto;
+                JOptionPane.showMessageDialog(this, "Movimiento exitoso.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Monto inválido o insuficiente.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        actualizarLabels();
+    }//GEN-LAST:event_recarbolsilloMouseClicked
+
+    private void recargarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recargarMouseClicked
+        String input = JOptionPane.showInputDialog(this, "¿Cuánto deseas recargar al disponible?");
+        try {
+            double monto = Double.parseDouble(input);
+            if (monto > 0) {
+                disponible += monto;
+                JOptionPane.showMessageDialog(this, "Recarga exitosa.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Ingrese un monto válido mayor que cero.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        actualizarLabels();
+    }//GEN-LAST:event_recargarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -219,6 +248,7 @@ public class Bolsillo extends javax.swing.JFrame {
     private javax.swing.JLabel lblDisponible;
     private javax.swing.JButton oscuro;
     private javax.swing.JButton recarbolsillo;
+    private javax.swing.JButton recargar;
     private javax.swing.JButton retibolsillo;
     // End of variables declaration//GEN-END:variables
 }
